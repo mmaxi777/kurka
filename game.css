@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYAZJhiJ-Ck-_seA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    padding: 0.15rem 2%;
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: 700;
+}
+
+header img {
+    height: 2rem;
+    margin-left: -10px;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+#how-to-play {
+    margin-left: 15px;
+    padding: 0.53rem 1rem;
+    border-radius: 6px;
+    background-color: #575757;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+#how-to-play svg {
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    fill: white;
+}
+
+#balance {
+    margin-left: 15px;
+    padding: 0.43rem 2.9rem;
+    border-radius: 6px;
+    background-color: #575757;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+#currency-icon {
+    margin-left: 5px;
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+#fullscreen-icon {
+    margin-left: 15px;
+    width: 14px;
+    height: 14px;
+    fill: white;
+    background-color: #575757;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+    margin-top: 3px;
+}
+
+#menu {
+    background-color: transparent;
+    border: none;
+    margin-left: 0px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#menu svg.burger {
+    width: 24px;
+    height: 25px;
+    fill: white;
+    margin-right: -35px;
+}
+
+#menu span {
+    font-size: 1rem;
+    color: white;
+}
+
+#game-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 2%;
+    background-color: #26262d;
+    color: white;
+    height: 28.8vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.control-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 27px;
+    background-color: #3a3a3a;
+    border: 3px solid #525252;
+    box-sizing: border-box;
+    position: relative;
+    height: auto;
+}
+
+.control-block:nth-child(1),
+.control-block:nth-child(3) {
+    flex-basis: 33%;
+}
+
+.control-block:nth-child(2) {
+    position: absolute;
+    top: 10px;
+    left: 22%;
+    right: auto;
+    bottom: auto;
+    width: 50%;
+    height: 300px;
+    max-height: 80vh;
+    min-height: 100px;
+    padding: 20px;
+    border-radius: 12px;
+    overflow: auto;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.control-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.fast-bet-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.min-max-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(84, 84, 84);
+    padding: 0.6rem;
+    border-radius: 10px;
+    width: 60%;
+    height: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: border 0.3s ease;
+    margin-top: 2%;
+}
+
+.min-max-container {
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.min-max-container:hover {
+    border-color: rgb(102, 102, 102);
+}
+
+.bet-btn {
+    background-color: #777;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.bet-btn#min-bet-btn {
+    background-color: rgb(101, 101, 101);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+    height: 44px;
+    width: 20%;
+    margin-top: 1%;
+}
+
+.bet-btn#max-bet-btn {
+    background-color: rgb(101, 101, 101);
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
+    height: 44px;
+    width: 20%;
+    margin-top: 1%;
+}
+
+.bet-btn#min-bet-btn:hover,
+.bet-btn#max-bet-btn:hover {
+    background-color: rgb(114, 114, 114);
+}
+
+.fast-bet-btn:hover {
+    background-color: rgb(88, 88, 88) !important;
+    border: 1px solid rgba(102, 102, 102, 0.5) !important;
+}
+
+.fast-bet-options {
+    display: flex;
+    justify-content: space-between;
+    width: 63.5%;
+    gap: 20px;
+    margin-top: 10px;
+    margin-right: 16.5vh;
+    flex-wrap: nowrap;
+}
+
+.fast-bet-btn {
+    background-color: rgb(84, 84, 84) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    height: 60px !important;
+    border: none !important;
+    border-radius: 12px !important;
+    width: 22% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    min-width: 60px !important;
+    font-size: 1.2rem !important;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    margin-top: 10px !important;
+}
+
+
+.fast-bet-btn svg {
+    margin-left: 5px;
+    width: 28px !important;
+    height: 28px !important;
+    fill: white !important;
+    flex-shrink: 0;
+}
+
+.control-block {
+    position: relative;
+}
+
+.control-header {
+    position: absolute;
+    top: 2%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 10;
+}
+
+.difficulty-label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.chance-label {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(146, 146, 146);
+}
+
+.bet-options button, .fast-bet-options button{
+    margin: -6px 0;
+    padding: 0.7rem;
+    cursor: pointer;
+    background-color: #777;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#play-btn {
+    width: 77%;
+    height: 93%;
+    background-color: rgb(61, 197, 91);
+    font-size: 2.7rem;
+    color: white;
+    padding: 1rem;
+    border: 0px;
+    border-radius: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2.99px 3.987px 0px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1%;
+    text-align: center;
+    margin-left: 19%;
+    margin-right: 0;
+    display: block;
+}
+
+#play-btn:hover {
+    background-color: rgb(38, 158, 62);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 10px 0px;
+}
+
+#play-btn:active {
+    background-color: rgb(30, 130, 60);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px 0px;
+}
+
+.difficulty-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(84, 84, 84);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-left: -1.5%;
+    height: 10%;
+    overflow: hidden;
+    margin-top: 90px;
+}
+
+.difficulty-btn {
+    background-color: rgb(84, 84, 84);
+    color: white;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 10px;
+    margin: 1%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.3rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.difficulty-btn:hover {
+    background-color: #6d6d6d !important;
+}
+
+.difficulty-btn.active {
+    background-color: #6d6d6d;
+}
+
+.difficulty-btn:not(.active) {
+    background-color: rgb(84, 84, 84);
+    color: #b0b0b0;
+}
+
+.fast-bet-options button {
+    background-color: #777;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fast-bet-options button svg {
+    margin-left: 5px;
+}
+
+#bet-input {
+    padding: 0.7rem;
+    width: 60px;
+    text-align: center;
+    border-radius: 6px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#bet-input:focus {
+    outline: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.draggable {
+    user-select: none;
+}
+
+.game-buttons-container {
+    display: flex;
+    width: 77%;
+    height: 93%;
+    gap: 30px;
+    margin-left: 19%;
+    margin-right: 0;
+}
+
+.win-button {
+    flex: 1;
+    background-color: #ffc107;
+    color: black;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2.99px 3.987px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    min-width: 0;
+    transition: background-color 0.3s ease;
+}
+
+.win-button:hover {
+    background-color: #e0a800;
+}
+
+.go-button {
+    flex: 1;
+    background-color: rgb(61, 197, 91);
+    font-size: 2.5rem;
+    color: white;
+    border: 0px;
+    border-radius: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2.99px 3.987px 0px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.go-button:hover {
+    background-color: rgb(38, 158, 62);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 10px 0px;
+}
+
+.go-button:active {
+    background-color: rgb(30, 130, 60);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 6px 12px 0px;
+}
+
+.game-buttons-container button {
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.control-block:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    #game-controls {
+        padding: 1.5rem 5%;
+        height: 15vh;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    #game-controls {
+        padding: 1rem 10%;
+        height: 20vh;
+    }
+}
+
+/* Добавьте в конец game.css */
+
+/* Ноутбуки и маленькие экраны */
+@media (max-width: 1600px) and (max-height: 900px) {
+    #game-controls {
+        padding: 1.5rem 2%;
+        height: 25vh;
+    }
+    
+    .control-wrapper {
+        padding: 0.8rem;
+    }
+    
+    #play-btn, .go-button {
+        font-size: 2.2rem;
+        width: 70%;
+        margin-left: 15%;
+    }
+    
+    .win-button {
+        font-size: 1.8rem;
+    }
+    
+    .game-buttons-container {
+        width: 70%;
+        margin-left: 15%;
+        gap: 20px;
+    }
+    
+    .difficulty-options {
+        margin-top: 70px;
+        padding: 0.8rem;
+    }
+    
+    .difficulty-btn {
+        font-size: 1.1rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .min-max-container {
+        width: 65%;
+        height: 45px;
+    }
+    
+    .fast-bet-options {
+        width: 68%;
+        gap: 15px;
+        margin-right: 15%;
+    }
+    
+    .fast-bet-btn {
+        height: 55px !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Ноутбуки с маленьким разрешением */
+@media (max-width: 1366px) {
+    header {
+        padding: 0.1rem 1.5%;
+    }
+    
+    #game-controls {
+        height: 30vh;
+        padding: 1rem 1.5%;
+    }
+    
+    .control-block:nth-child(2) {
+        width: 55%;
+        left: 20%;
+    }
+    
+    #play-btn, .go-button {
+        font-size: 2rem;
+    }
+    
+    .win-button {
+        font-size: 1.6rem;
+    }
+    
+    .difficulty-btn {
+        font-size: 1rem;
+    }
+    
+    .control-header span {
+        font-size: 18px;
+    }
+}
+
+/* Адаптация для разных высот экрана */
+@media (max-height: 800px) {
+    #game-field {
+        height: 60vh;
+    }
+    
+    #game-controls {
+        height: 35vh;
+    }
+}
+
+/* Очень маленькие ноутбуки */
+@media (max-width: 1280px) {
+    .control-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .control-block:nth-child(2) {
+        position: static;
+        width: 100%;
+        order: -1;
+        height: auto;
+    }
+    
+    .control-block:nth-child(1),
+    .control-block:nth-child(3) {
+        flex-basis: auto;
+    }
+    
+    .difficulty-options {
+        margin-top: 40px;
+        height: auto;
+        min-height: 50px;
+    }
+    
+    #play-btn, .go-button {
+        width: 100%;
+        margin-left: 0;
+        height: 80px;
+    }
+    
+    .game-buttons-container {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.win-button:disabled,
+.go-button:disabled {
+    opacity: 0.7 !important;
+    cursor: default !important;
+}
